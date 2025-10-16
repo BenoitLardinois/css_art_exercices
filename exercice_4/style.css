@@ -1,0 +1,34 @@
+.tube{
+    /* Positionner au centre de la page */
+    position: absolute;
+    top: 50%; left: 50%;
+    translate: -50% -50%;
+    /* Le set up */
+    height: 300px;
+    /* ça c'est pour la 3D */
+    transform-style: preserve-3d;
+    transform: rotateX(-60deg) rotateZ(-30deg);
+
+    --radius: 100px;
+    --n: 3;
+    --length: calc(var(--radius) * 2 * tan(180deg / var(--n)));
+    --angle: calc(360deg / var(--n));
+}
+
+.tube_face{
+    position: absolute;
+    height: 100%; width: var(--length);
+    background-color: red;
+    transform: translateX(-50%) rotateY(calc(var(--angle) * 0)) translateZ(var(--radius));
+}
+
+.tube_face:nth-child(1){
+}
+
+.tube_face:nth-child(2){
+    transform: translateX(-50%) rotateY(calc(var(--angle) * 1)) translateZ(var(--radius));
+}
+
+.tube_face:nth-child(3){
+    transform: translateX(-50%) rotateY(calc(var(--angle) * 2 )) translateZ(var(--radius));
+}
