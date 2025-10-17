@@ -10,25 +10,21 @@
     transform: rotateX(-60deg) rotateZ(-30deg);
 
     --radius: 100px;
-    --n: 3;
+    --n: 100;
     --length: calc(var(--radius) * 2 * tan(180deg / var(--n)));
     --angle: calc(360deg / var(--n));
+
+    -webkit-animation: tube 5s linear infinite;
+}
+
+@-webkit-keyframes tube{
+  to { transform: rotateX(-60deg) rotateZ(330deg) rotateY(360deg); }
 }
 
 .tube_face{
     position: absolute;
     height: 100%; width: var(--length);
-    background-color: red;
-    transform: translateX(-50%) rotateY(calc(var(--angle) * 0)) translateZ(var(--radius));
-}
-
-.tube_face:nth-child(1){
-}
-
-.tube_face:nth-child(2){
-    transform: translateX(-50%) rotateY(calc(var(--angle) * 1)) translateZ(var(--radius));
-}
-
-.tube_face:nth-child(3){
-    transform: translateX(-50%) rotateY(calc(var(--angle) * 2 )) translateZ(var(--radius));
+    background-color: #E2AFFF;
+    filter: hue-rotate(calc(var(--angle) * var(--i)));
+    transform: translateX(-50%) rotateY(calc(var(--angle) * var(--i))) translateZ(var(--radius));
 }
